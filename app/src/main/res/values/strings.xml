@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Wordle</string>
+    <string name="word_game_title">Word Game</string>
+    <string name="no_letter_in_words_title">No. of letter in a words</string>
+    <string name="eight_title">8</string>
+    <string name="seven_title">7</string>
+    <string name="six_title">6</string>
+    <string name="five_title">5</string>
+    <string name="filter_title">Filter</string>
+
+
+    <string name="app_id">ca-app-pub-5797286914124466~9442933109</string>
+    <string name="unit_id">ca-app-pub-5797286914124466/2778286559</string>
+
+
+
+
+</resources>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--   Margin    -->
+    <dimen name="margin_xsmall">2dp</dimen>
+    <dimen name="margin_small">4dp</dimen>
+    <dimen name="margin_large">8dp</dimen>
+    <dimen name="margin_xlarge">12dp</dimen>
+    <dimen name="margin_xxlarge">16dp</dimen>
+    <dimen name="margin_xxxlarge">20dp</dimen>
+    <dimen name="margin_big">28dp</dimen>
+
+    <!--  Padding  -->
+    <dimen name="padding_xsmall">2dp</dimen>
+    <dimen name="padding_small">4dp</dimen>
+    <dimen name="padding_large">8dp</dimen>
+    <dimen name="padding_xlarge">12dp</dimen>
+    <dimen name="padding_xxlarge">16dp</dimen>
+    <dimen name="padding_xxxlarge">20dp</dimen>
+    <dimen name="padding_big">28dp</dimen>
+
+    <dimen name="btn_corner_radius">12dp</dimen>
+</resources>
