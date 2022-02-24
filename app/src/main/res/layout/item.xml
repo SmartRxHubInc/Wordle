@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_small">
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            app:cardBackgroundColor="@color/grey"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/cardView"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <EditText
+                android:id="@+id/editText"
+                style="@style/toolbar_title"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:background="@drawable/border"
+                android:backgroundTint="@color/black"
+                android:ems="10"
+                android:gravity="center"
+                android:cursorVisible="false"
+                android:hint="0"
+                android:inputType="textCapSentences"
+                android:maxLength="1"
+                android:padding="@dimen/padding_large"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey_100"
+                android:textStyle="bold" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            app:cardBackgroundColor="@color/grey"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/cardView3"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/cardView2"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <EditText
+                android:id="@+id/editText1"
+                style="@style/toolbar_title"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:background="@drawable/border"
+                android:backgroundTint="@color/black"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="0"
+                android:cursorVisible="false"
+
+                android:inputType="textCapSentences"
+                android:maxLength="1"
+                android:padding="@dimen/padding_large"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey_100"
+                android:textStyle="bold" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            app:cardBackgroundColor="@color/grey"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/cardView4"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/cardView"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <EditText
+                android:id="@+id/editText2"
+                style="@style/toolbar_title"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:background="@drawable/border"
+                android:backgroundTint="@color/black"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="0"
+                android:cursorVisible="false"
+
+                android:inputType="textCapSentences"
+                android:maxLength="1"
+                android:padding="@dimen/padding_large"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey_100"
+                android:textStyle="bold" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            app:cardBackgroundColor="@color/grey"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/cardView5"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/cardView3"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <EditText
+                android:id="@+id/editText3"
+                style="@style/toolbar_title"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:background="@drawable/border"
+                android:backgroundTint="@color/black"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="0"
+                android:cursorVisible="false"
+                android:inputType="textCapSentences"
+                android:maxLength="1"
+                android:padding="@dimen/padding_large"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey_100"
+                android:textStyle="bold" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            app:cardBackgroundColor="@color/grey"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/cardView4"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <EditText
+                android:id="@+id/editText4"
+                style="@style/toolbar_title"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:background="@drawable/border"
+                android:backgroundTint="@color/black"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="0"
+                android:cursorVisible="false"
+                android:inputType="textCapSentences"
+                android:maxLength="1"
+                android:padding="@dimen/padding_large"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey_100"
+                android:textStyle="bold" />
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

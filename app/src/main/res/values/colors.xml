@@ -9,9 +9,11 @@
     <color name="white">#FFFFFFFF</color>
 
     <!--  Used colors  -->
+    <color name="grey_100">#81BFBFBF</color>
     <color name="blue">#0E4DA4</color>
     <color name="green">#00B24A</color>
     <color name="grey">#BFBFBF</color>
+    <color name="dark_gray">#737373</color>
     <color name="yellow">#FFBE00</color>
 
 

@@ -1,7 +1,7 @@
 package com.dms.wordle.utility
 
 import com.dms.wordle.ItemType
-import com.dms.wordle.models.CharItem
+import com.dms.wordle.models.ChatItem
 import com.dms.wordle.models.BoxesItem
 
 object Utils {
@@ -10,13 +10,31 @@ object Utils {
         val mainItem = ArrayList<BoxesItem>()
         for (i in 1..verticalItem) {
             val dictionaryItem = BoxesItem();
-            val charItem = ArrayList<CharItem>()
+            val charItem = ArrayList<ChatItem>()
             for (j in 1..horizontalItem) {
-                charItem.add(CharItem("", ItemType.GREY, 0, false))
+                charItem.add(ChatItem("", ItemType.GREY, 0))
             }
             dictionaryItem.charItem = charItem
             mainItem.add(dictionaryItem)
         }
         return mainItem
+    }
+
+    @JvmStatic
+    fun boxItems(verticalItem: Int): ArrayList<ChatItem> {
+        val charItem = ArrayList<ChatItem>()
+        for (i in 1..verticalItem) {
+            charItem.add(ChatItem("", ItemType.BLACK, 0))
+        }
+        return charItem
+    }
+
+    @JvmStatic
+    fun items(digitOfItem : Int): ArrayList<ChatItem> {
+        val charItem = ArrayList<ChatItem>()
+        for (i in 1..digitOfItem) {
+            charItem.add(ChatItem("", ItemType.BLACK, 0))
+        }
+        return charItem
     }
 }

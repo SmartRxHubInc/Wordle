@@ -154,7 +154,6 @@
 
         </RadioGroup>
 
-
         <View
             android:id="@+id/view2"
             android:layout_width="match_parent"
@@ -168,29 +167,16 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_word"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="@dimen/margin_small"
             android:layout_marginRight="20dp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toTopOf="@+id/btn_filter"
             app:layout_constraintEnd_toEndOf="@id/guideline5"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="@+id/guideline3"
-            app:layout_constraintTop_toBottomOf="@+id/rg"
-            android:visibility="gone"/>
-
-        <LinearLayout
-            android:id="@+id/tableview"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toTopOf="@+id/btn_filter"
-            app:layout_constraintEnd_toEndOf="@id/guideline5"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="@+id/guideline3"
-            app:layout_constraintTop_toBottomOf="@+id/rg"
-            android:orientation="vertical" />
+            app:layout_constraintTop_toBottomOf="@+id/rg" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/btn_filter"
@@ -208,7 +194,7 @@
             app:layout_constraintBottom_toTopOf="@+id/rv_filter"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tableview" />
+            app:layout_constraintTop_toBottomOf="@+id/rv_word" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_filter"

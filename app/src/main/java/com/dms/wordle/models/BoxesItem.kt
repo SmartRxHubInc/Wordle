@@ -1,5 +1,5 @@
 package com.dms.wordle.models
 
 class BoxesItem {
-    var charItem = ArrayList<CharItem>()
+    var charItem = ArrayList<ChatItem>()
 }
