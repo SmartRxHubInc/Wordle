@@ -15,7 +15,11 @@ class MyEditTextView(
 ) : TextWatcher {
     override fun afterTextChanged(editable: Editable) {
         val text = editable.toString()
-        if (text.length == 1) etNext.requestFocus() else if (text.isEmpty()) etPrev.requestFocus()
+        if (text.length == 1) {
+            etNext.requestFocus()
+        } else if (text.isEmpty()) {
+            etPrev.requestFocus()
+        }
         list[writePosition].char = text
     }
 

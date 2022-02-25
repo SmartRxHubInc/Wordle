@@ -1,11 +1,13 @@
 package com.dms.wordle.adapters
 
 import android.content.Context
-import android.graphics.Color
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
 import android.widget.EditText
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.dms.wordle.ItemType
@@ -14,6 +16,7 @@ import com.dms.wordle.custom.MyEditTextView
 import com.dms.wordle.databinding.Item1Binding
 import com.dms.wordle.models.ChatItem
 import com.dms.wordle.ui.home.HomeRepository
+
 
 class MyAdapter(
     private val mContext: Context,
@@ -37,6 +40,20 @@ class MyAdapter(
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+
+        setKeyboardAction(digit, holder.binding)
+
+//        with(holder.binding) {
+//            editText.onFocusChangeListener = FocusEditText(mContext, editText, holder.binding)
+//            editText1.onFocusChangeListener = FocusEditText(mContext, editText1, holder.binding)
+//            editText2.onFocusChangeListener = FocusEditText(mContext, editText2, holder.binding)
+//            editText3.onFocusChangeListener = FocusEditText(mContext, editText3, holder.binding)
+//            editText4.onFocusChangeListener = FocusEditText(mContext, editText4, holder.binding)
+//            editText5.onFocusChangeListener = FocusEditText(mContext, editText5, holder.binding)
+//            editText6.onFocusChangeListener = FocusEditText(mContext, editText6, holder.binding)
+//            editText7.onFocusChangeListener = FocusEditText(mContext, editText7, holder.binding)
+//        }
+
         when (digit) {
             5 -> with(holder.binding) {
                 homeRepository.fiveOfList
@@ -320,34 +337,35 @@ class MyAdapter(
         }
 
         holder.binding.editText.setOnClickListener {
-            setColor(holder.binding.editText, position, 0)
+            setColor(holder.binding.editText, position, 0, digit)
         }
 
         holder.binding.editText1.setOnClickListener {
-        }
-
-        holder.binding.editText3.setOnClickListener {
-            holder.binding.editText3.setBackgroundColor(Color.BLUE)
-        }
-
-        holder.binding.editText4.setOnClickListener {
-            holder.binding.editText4.setBackgroundColor(Color.BLUE)
-        }
-
-        holder.binding.editText5.setOnClickListener {
-            holder.binding.editText5.setBackgroundColor(Color.BLUE)
-        }
-
-        holder.binding.editText6.setOnClickListener {
-            holder.binding.editText6.setBackgroundColor(Color.BLUE)
-        }
-
-        holder.binding.editText7.setOnClickListener {
-            holder.binding.editText7.setBackgroundColor(Color.BLUE)
+            setColor(holder.binding.editText1, position, 1, digit)
         }
 
         holder.binding.editText2.setOnClickListener {
-            holder.binding.editText.setBackgroundColor(Color.BLUE)
+            setColor(holder.binding.editText2, position, 2, digit)
+        }
+
+        holder.binding.editText3.setOnClickListener {
+            setColor(holder.binding.editText3, position, 3, digit)
+        }
+
+        holder.binding.editText4.setOnClickListener {
+            setColor(holder.binding.editText4, position, 4, digit)
+        }
+
+        holder.binding.editText5.setOnClickListener {
+            setColor(holder.binding.editText5, position, 5, digit)
+        }
+
+        holder.binding.editText6.setOnClickListener {
+            setColor(holder.binding.editText6, position, 6, digit)
+        }
+
+        holder.binding.editText7.setOnClickListener {
+            setColor(holder.binding.editText7, position, 7, digit)
         }
     }
 
@@ -355,15 +373,92 @@ class MyAdapter(
         return mList.size
     }
 
-
-    private fun setColor(editText: EditText, position: Int, writePosition: Int,) {
-        when (homeRepository.fiveOfList[writePosition].type) {
-            ItemType.BLACK -> homeRepository.fiveOfList[writePosition].type = ItemType.GREY
-            ItemType.GREY -> homeRepository.fiveOfList[writePosition].type = ItemType.YELLOW
-            ItemType.YELLOW -> homeRepository.fiveOfList[writePosition].type = ItemType.GREEN
-            ItemType.GREEN -> homeRepository.fiveOfList[writePosition].type = ItemType.BLACK
+    private fun setColor(editText: EditText, position: Int, writePosition: Int, digit: Int) {
+        if (digit == 5) {
+            when (homeRepository.fiveOfList[writePosition].type) {
+                ItemType.GREY -> homeRepository.fiveOfList[writePosition].type = ItemType.YELLOW
+                ItemType.YELLOW -> homeRepository.fiveOfList[writePosition].type = ItemType.GREEN
+                ItemType.GREEN -> homeRepository.fiveOfList[writePosition].type = ItemType.GREY
+            }
+            editText.backgroundTintList = ContextCompat.getColorStateList(mContext,homeRepository.fiveOfList[writePosition].type.getColors())
         }
-        editText.backgroundTintList = mContext.resources.getColorStateList( homeRepository.fiveOfList[writePosition].type.getColors())
+
+        if (digit == 6) {
+            when (homeRepository.sixOfList[writePosition].type) {
+                ItemType.GREY -> homeRepository.sixOfList[writePosition].type = ItemType.YELLOW
+                ItemType.YELLOW -> homeRepository.sixOfList[writePosition].type = ItemType.GREEN
+                ItemType.GREEN -> homeRepository.sixOfList[writePosition].type = ItemType.GREY
+            }
+            editText.backgroundTintList = ContextCompat.getColorStateList(mContext,homeRepository.sixOfList[writePosition].type.getColors())
+        }
+
+        if (digit == 7) {
+            when (homeRepository.sevenOfList[writePosition].type) {
+                ItemType.GREY -> homeRepository.sevenOfList[writePosition].type = ItemType.YELLOW
+                ItemType.YELLOW -> homeRepository.sevenOfList[writePosition].type = ItemType.GREEN
+                ItemType.GREEN -> homeRepository.sevenOfList[writePosition].type = ItemType.GREY
+            }
+            editText.backgroundTintList = ContextCompat.getColorStateList(mContext, homeRepository.sevenOfList[writePosition].type.getColors())
+        }
+
+        if (digit == 8) {
+            when (homeRepository.eightOfList[writePosition].type) {
+                ItemType.GREY -> homeRepository.eightOfList[writePosition].type = ItemType.YELLOW
+                ItemType.YELLOW -> homeRepository.eightOfList[writePosition].type = ItemType.GREEN
+                ItemType.GREEN -> homeRepository.eightOfList[writePosition].type = ItemType.GREY
+            }
+            editText.backgroundTintList = ContextCompat.getColorStateList(mContext, homeRepository.eightOfList[writePosition].type.getColors())
+        }
     }
 
+
+    private fun setKeyboardAction(digit: Int, binding: Item1Binding) {
+        if (digit == 5) {
+            binding.editText4.imeOptions = EditorInfo.IME_ACTION_DONE
+            binding.editText4.setOnEditorActionListener { v, actionId, event ->
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    for (i in 0 until homeRepository.fiveOfList.size) {
+                        if (ItemType.GREY == homeRepository.fiveOfList[i].type) {
+                            Log.e("GREY size", i.toString())
+                        }
+
+                        if (ItemType.YELLOW == homeRepository.fiveOfList[i].type) {
+                            Log.e("YELLOW size", i.toString())
+                        }
+
+                        if (ItemType.GREEN == homeRepository.fiveOfList[i].type) {
+                            Log.e("GREEN size", i.toString())
+                        }
+                    }
+                    true
+                } else false
+            }
+        }
+
+        if (digit == 6) {
+            binding.editText5.imeOptions = EditorInfo.IME_ACTION_DONE
+        }
+
+        if (digit == 7) {
+            binding.editText6.imeOptions = EditorInfo.IME_ACTION_DONE
+        }
+
+        if (digit == 8) {
+            binding.editText7.imeOptions = EditorInfo.IME_ACTION_DONE
+        }
+    }
+
+    class FocusEditText(private val mContext: Context, private val selectedEditText : EditText, val binding: Item1Binding) : View.OnFocusChangeListener {
+        override fun onFocusChange(view: View?, isSelect: Boolean) {
+                binding.editText.backgroundTintList = ContextCompat.getColorStateList(mContext, R.color.grey)
+                binding.editText1.backgroundTintList = ContextCompat.getColorStateList(mContext, R.color.grey)
+                binding.editText2.backgroundTintList = ContextCompat.getColorStateList(mContext, R.color.grey)
+                binding.editText3.backgroundTintList = ContextCompat.getColorStateList(mContext, R.color.grey)
+                binding.editText4.backgroundTintList = ContextCompat.getColorStateList(mContext, R.color.grey)
+                binding.editText5.backgroundTintList = ContextCompat.getColorStateList(mContext, R.color.grey)
+                binding.editText6.backgroundTintList = ContextCompat.getColorStateList(mContext, R.color.grey)
+                binding.editText7.backgroundTintList = ContextCompat.getColorStateList(mContext, R.color.grey)
+                selectedEditText.backgroundTintList = ContextCompat.getColorStateList(mContext, R.color.sky)
+        }
+    }
 }

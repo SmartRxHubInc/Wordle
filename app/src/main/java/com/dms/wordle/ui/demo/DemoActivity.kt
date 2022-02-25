@@ -30,7 +30,7 @@ class DemoActivity : BaseActivity() {
         Log.e("Name : ", dictionaryList[0].charItem[0].type.name)
         Log.e("Diameter : ", dictionaryList[0].charItem[0].type.diameter.toString())
 
-        binding.box.setOnClickListener {  }
-        binding.box.setOnClickListener() {  }
+        binding.box.setOnClickListener { }
+        binding.box.setOnClickListener() { }
     }
 }

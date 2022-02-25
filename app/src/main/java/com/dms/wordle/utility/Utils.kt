@@ -24,7 +24,7 @@ object Utils {
     fun boxItems(verticalItem: Int): ArrayList<ChatItem> {
         val charItem = ArrayList<ChatItem>()
         for (i in 1..verticalItem) {
-            charItem.add(ChatItem("", ItemType.BLACK, 0))
+            charItem.add(ChatItem("", ItemType.GREY, 0))
         }
         return charItem
     }
@@ -33,7 +33,7 @@ object Utils {
     fun items(digitOfItem : Int): ArrayList<ChatItem> {
         val charItem = ArrayList<ChatItem>()
         for (i in 1..digitOfItem) {
-            charItem.add(ChatItem("", ItemType.BLACK, 0))
+            charItem.add(ChatItem("", ItemType.GREY, 0))
         }
         return charItem
     }

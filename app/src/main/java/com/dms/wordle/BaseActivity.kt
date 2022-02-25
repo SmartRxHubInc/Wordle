@@ -35,7 +35,6 @@ open class BaseActivity : AppCompatActivity() {
         }
     }
 
-
     fun digitWiseData(limits: Int): ArrayList<DictionaryData> {
         val dictionaryData = ArrayList<DictionaryData>()
         if (listDictionaryData.isNotEmpty()) {

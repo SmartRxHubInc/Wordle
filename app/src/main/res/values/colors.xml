@@ -10,6 +10,7 @@
 
     <!--  Used colors  -->
     <color name="grey_100">#81BFBFBF</color>
+    <color name="sky">#00C1F1</color>
     <color name="blue">#0E4DA4</color>
     <color name="green">#00B24A</color>
     <color name="grey">#BFBFBF</color>
