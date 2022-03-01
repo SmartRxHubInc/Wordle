@@ -17,11 +17,11 @@ class DemoActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_demo)
         getDigitWiseDictionary()
-        val adapter = DictionaryAdapter(this)
-        binding.recyclerView.adapter = adapter
-        binding.recyclerView1.adapter = adapter
+//        val adapter = DictionaryAdapter(this, null)
+//        binding.recyclerView.adapter = adapter
+//        binding.recyclerView1.adapter = adapter
         val listOfDictionary = digitWiseData(5)
-        adapter.addItems(listOfDictionary)
+//        adapter.addItems(listOfDictionary)
 
         val dictionaryList = Utils.boxesItem(6, 5)
         dictionaryList[0].charItem[0].type = ItemType.GREEN

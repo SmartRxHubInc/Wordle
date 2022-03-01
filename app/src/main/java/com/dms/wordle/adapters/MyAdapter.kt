@@ -7,15 +7,19 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.widget.EditText
+import android.widget.Toast
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.dms.wordle.ItemType
 import com.dms.wordle.R
-import com.dms.wordle.custom.MyEditTextView
-import com.dms.wordle.databinding.Item1Binding
+import com.dms.wordle.databinding.MyItemBinding
+import com.dms.wordle.models.AddCharInEdittext
 import com.dms.wordle.models.ChatItem
 import com.dms.wordle.ui.home.HomeRepository
+import com.dms.wordle.utility.ManageUI
+import com.dms.wordle.utility.Utils
 
 
 class MyAdapter(
@@ -23,16 +27,15 @@ class MyAdapter(
     private val homeRepository: HomeRepository,
     private val mList: ArrayList<ChatItem>,
     private val digit: Int
-) :
-    RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
+) : RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
 
-    class MyViewHolder(var binding: Item1Binding) : RecyclerView.ViewHolder(binding.root)
+    class MyViewHolder(var binding: MyItemBinding) : RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         return MyViewHolder(
             DataBindingUtil.inflate(
                 LayoutInflater.from(mContext),
-                R.layout.item1,
+                R.layout.my_item,
                 parent,
                 false
             )
@@ -40,301 +43,52 @@ class MyAdapter(
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+        setKeyboardAction(digit, holder.binding, position)
+        ManageUI.manageTextEdit(
+            digit = digit,
+            position = position,
+            binding = holder.binding,
+            homeRepository = homeRepository
+        )
 
-        setKeyboardAction(digit, holder.binding)
-
-//        with(holder.binding) {
-//            editText.onFocusChangeListener = FocusEditText(mContext, editText, holder.binding)
-//            editText1.onFocusChangeListener = FocusEditText(mContext, editText1, holder.binding)
-//            editText2.onFocusChangeListener = FocusEditText(mContext, editText2, holder.binding)
-//            editText3.onFocusChangeListener = FocusEditText(mContext, editText3, holder.binding)
-//            editText4.onFocusChangeListener = FocusEditText(mContext, editText4, holder.binding)
-//            editText5.onFocusChangeListener = FocusEditText(mContext, editText5, holder.binding)
-//            editText6.onFocusChangeListener = FocusEditText(mContext, editText6, holder.binding)
-//            editText7.onFocusChangeListener = FocusEditText(mContext, editText7, holder.binding)
-//        }
-
-        when (digit) {
-            5 -> with(holder.binding) {
-                homeRepository.fiveOfList
-                cardView1.visibility = View.VISIBLE
-                cardView2.visibility = View.VISIBLE
-                cardView3.visibility = View.VISIBLE
-                cardView4.visibility = View.VISIBLE
-                cardView5.visibility = View.VISIBLE
-                cardView6.visibility = View.GONE
-                cardView7.visibility = View.GONE
-                cardView8.visibility = View.GONE
-                editText.addTextChangedListener(
-                    MyEditTextView(
-                        editText1,
-                        editText,
-                        position,
-                        0,
-                        homeRepository.fiveOfList
-                    )
-                )
-                editText1.addTextChangedListener(
-                    MyEditTextView(
-                        editText2,
-                        editText,
-                        position,
-                        1,
-                        homeRepository.fiveOfList
-                    )
-                )
-                editText2.addTextChangedListener(
-                    MyEditTextView(
-                        editText3,
-                        editText1,
-                        position,
-                        2,
-                        homeRepository.fiveOfList
-                    )
-                )
-                editText3.addTextChangedListener(
-                    MyEditTextView(
-                        editText4,
-                        editText2,
-                        position,
-                        3,
-                        homeRepository.fiveOfList
-                    )
-                )
-                editText4.addTextChangedListener(
-                    MyEditTextView(
-                        editText4,
-                        editText3,
-                        position,
-                        4,
-                        homeRepository.fiveOfList
-                    )
-                )
-            }
-
-            6 -> with(holder.binding) {
-                cardView1.visibility = View.VISIBLE
-                cardView2.visibility = View.VISIBLE
-                cardView3.visibility = View.VISIBLE
-                cardView4.visibility = View.VISIBLE
-                cardView5.visibility = View.VISIBLE
-                cardView6.visibility = View.VISIBLE
-                cardView7.visibility = View.GONE
-                cardView8.visibility = View.GONE
-                editText.addTextChangedListener(
-                    MyEditTextView(
-                        editText1,
-                        editText,
-                        position,
-                        0,
-                        homeRepository.sixOfList
-                    )
-                )
-                editText1.addTextChangedListener(
-                    MyEditTextView(
-                        editText2,
-                        editText,
-                        position,
-                        1,
-                        homeRepository.sixOfList
-                    )
-                )
-                editText2.addTextChangedListener(
-                    MyEditTextView(
-                        editText3,
-                        editText1,
-                        position,
-                        2,
-                        homeRepository.sixOfList
-                    )
-                )
-                editText3.addTextChangedListener(
-                    MyEditTextView(
-                        editText4,
-                        editText2,
-                        position,
-                        3,
-                        homeRepository.sixOfList
-                    )
-                )
-                editText4.addTextChangedListener(
-                    MyEditTextView(
-                        editText5,
-                        editText3,
-                        position,
-                        4,
-                        homeRepository.sixOfList
-                    )
-                )
-                editText5.addTextChangedListener(
-                    MyEditTextView(
-                        editText5,
-                        editText4,
-                        position,
-                        5,
-                        homeRepository.sixOfList
-                    )
-                )
-            }
-
-            7 -> with(holder.binding) {
-                cardView1.visibility = View.VISIBLE
-                cardView2.visibility = View.VISIBLE
-                cardView3.visibility = View.VISIBLE
-                cardView4.visibility = View.VISIBLE
-                cardView5.visibility = View.VISIBLE
-                cardView6.visibility = View.VISIBLE
-                cardView7.visibility = View.VISIBLE
-                cardView8.visibility = View.GONE
-                editText.addTextChangedListener(
-                    MyEditTextView(
-                        editText1,
-                        editText,
-                        position,
-                        0,
-                        homeRepository.sevenOfList
-                    )
-                )
-                editText1.addTextChangedListener(
-                    MyEditTextView(
-                        editText2,
-                        editText,
-                        position,
-                        1,
-                        homeRepository.sevenOfList
-                    )
-                )
-                editText2.addTextChangedListener(
-                    MyEditTextView(
-                        editText3,
-                        editText1,
-                        position,
-                        2,
-                        homeRepository.sevenOfList
-                    )
-                )
-                editText3.addTextChangedListener(
-                    MyEditTextView(
-                        editText4,
-                        editText2,
-                        position,
-                        3,
-                        homeRepository.sevenOfList
-                    )
-                )
-                editText4.addTextChangedListener(
-                    MyEditTextView(
-                        editText5,
-                        editText3,
-                        position,
-                        4,
-                        homeRepository.sevenOfList
-                    )
-                )
-                editText5.addTextChangedListener(
-                    MyEditTextView(
-                        editText6,
-                        editText4,
-                        position,
-                        5,
-                        homeRepository.sevenOfList
-                    )
-                )
-                editText6.addTextChangedListener(
-                    MyEditTextView(
-                        editText6,
-                        editText5,
-                        position,
-                        6,
-                        homeRepository.sevenOfList
-                    )
-                )
-            }
-
-            8 -> with(holder.binding) {
-                cardView1.visibility = View.VISIBLE
-                cardView2.visibility = View.VISIBLE
-                cardView3.visibility = View.VISIBLE
-                cardView4.visibility = View.VISIBLE
-                cardView5.visibility = View.VISIBLE
-                cardView6.visibility = View.VISIBLE
-                cardView7.visibility = View.VISIBLE
-                cardView8.visibility = View.VISIBLE
-
-                editText.addTextChangedListener(
-                    MyEditTextView(
-                        editText1,
-                        editText,
-                        position,
-                        0,
-                        homeRepository.eightOfList
-                    )
-                )
-                editText1.addTextChangedListener(
-                    MyEditTextView(
-                        editText2,
-                        editText,
-                        position,
-                        1,
-                        homeRepository.eightOfList
-                    )
-                )
-                editText2.addTextChangedListener(
-                    MyEditTextView(
-                        editText3,
-                        editText1,
-                        position,
-                        2,
-                        homeRepository.eightOfList
-                    )
-                )
-                editText3.addTextChangedListener(
-                    MyEditTextView(
-                        editText4,
-                        editText2,
-                        position,
-                        3,
-                        homeRepository.eightOfList
-                    )
-                )
-                editText4.addTextChangedListener(
-                    MyEditTextView(
-                        editText5,
-                        editText3,
-                        position,
-                        4,
-                        homeRepository.eightOfList
-                    )
-                )
-                editText5.addTextChangedListener(
-                    MyEditTextView(
-                        editText6,
-                        editText4,
-                        position,
-                        5,
-                        homeRepository.eightOfList
-                    )
-                )
-                editText6.addTextChangedListener(
-                    MyEditTextView(
-                        editText7,
-                        editText5,
-                        position,
-                        6,
-                        homeRepository.eightOfList
-                    )
-                )
-                editText7.addTextChangedListener(
-                    MyEditTextView(
-                        editText7,
-                        editText6,
-                        position,
-                        7,
-                        homeRepository.eightOfList
-                    )
-                )
+        holder.binding.ivDone.setOnClickListener {
+            with(holder) {
+                if (binding.editText.text.isNotEmpty() &&
+                    binding.editText1.text.isNotEmpty() &&
+                    binding.editText2.text.isNotEmpty() &&
+                    binding.editText3.text.isNotEmpty() &&
+                    binding.editText4.text.isNotEmpty()
+                ) {
+                    for (i in 0 until homeRepository.fiveOfList.size) {
+                        homeRepository.addInList(i, homeRepository.fiveOfList[i].type, binding)
+                    }
+                    homeRepository.fiveOfList.clear()
+                    homeRepository.fiveOfList = Utils.items(5)
+                    Utils.hideKeyBoard(mContext, binding.editText)
+                    homeRepository.checkIsWrite(position)
+                } else {
+                    Toast.makeText(mContext, "Fill the row ", Toast.LENGTH_SHORT).show()
+                }
             }
         }
+
+        if (position == mList.size - 1) {
+            holder.binding.btnFilter.visibility = View.GONE
+        } else {
+            holder.binding.btnFilter.visibility = View.GONE
+        }
+
+        val editTextList = ArrayList<EditText>()
+        editTextList.add(holder.binding.editText)
+        editTextList.add(holder.binding.editText1)
+        editTextList.add(holder.binding.editText2)
+        editTextList.add(holder.binding.editText3)
+        editTextList.add(holder.binding.editText4)
+        editTextList.add(holder.binding.editText5)
+        editTextList.add(holder.binding.editText6)
+        editTextList.add(holder.binding.editText7)
+
+        homeRepository.addCharInEdittext.add(AddCharInEdittext("", editTextList))
 
         holder.binding.editText.setOnClickListener {
             setColor(holder.binding.editText, position, 0, digit)
@@ -380,7 +134,10 @@ class MyAdapter(
                 ItemType.YELLOW -> homeRepository.fiveOfList[writePosition].type = ItemType.GREEN
                 ItemType.GREEN -> homeRepository.fiveOfList[writePosition].type = ItemType.GREY
             }
-            editText.backgroundTintList = ContextCompat.getColorStateList(mContext,homeRepository.fiveOfList[writePosition].type.getColors())
+            editText.backgroundTintList = ContextCompat.getColorStateList(
+                mContext,
+                homeRepository.fiveOfList[writePosition].type.getColors()
+            )
         }
 
         if (digit == 6) {
@@ -389,7 +146,10 @@ class MyAdapter(
                 ItemType.YELLOW -> homeRepository.sixOfList[writePosition].type = ItemType.GREEN
                 ItemType.GREEN -> homeRepository.sixOfList[writePosition].type = ItemType.GREY
             }
-            editText.backgroundTintList = ContextCompat.getColorStateList(mContext,homeRepository.sixOfList[writePosition].type.getColors())
+            editText.backgroundTintList = ContextCompat.getColorStateList(
+                mContext,
+                homeRepository.sixOfList[writePosition].type.getColors()
+            )
         }
 
         if (digit == 7) {
@@ -398,7 +158,10 @@ class MyAdapter(
                 ItemType.YELLOW -> homeRepository.sevenOfList[writePosition].type = ItemType.GREEN
                 ItemType.GREEN -> homeRepository.sevenOfList[writePosition].type = ItemType.GREY
             }
-            editText.backgroundTintList = ContextCompat.getColorStateList(mContext, homeRepository.sevenOfList[writePosition].type.getColors())
+            editText.backgroundTintList = ContextCompat.getColorStateList(
+                mContext,
+                homeRepository.sevenOfList[writePosition].type.getColors()
+            )
         }
 
         if (digit == 8) {
@@ -407,58 +170,245 @@ class MyAdapter(
                 ItemType.YELLOW -> homeRepository.eightOfList[writePosition].type = ItemType.GREEN
                 ItemType.GREEN -> homeRepository.eightOfList[writePosition].type = ItemType.GREY
             }
-            editText.backgroundTintList = ContextCompat.getColorStateList(mContext, homeRepository.eightOfList[writePosition].type.getColors())
+            editText.backgroundTintList = ContextCompat.getColorStateList(
+                mContext,
+                homeRepository.eightOfList[writePosition].type.getColors()
+            )
         }
     }
 
+    private fun setKeyboardAction(digit: Int, binding: MyItemBinding, position: Int) {
 
-    private fun setKeyboardAction(digit: Int, binding: Item1Binding) {
+        binding.editText.setOnEditorActionListener { _, actionId, _ ->
+            if (actionId == EditorInfo.IME_ACTION_DONE) {
+                checkDigit(digit, binding, position)
+                true
+            } else {
+                false
+            }
+        }
+
+        binding.editText1.setOnEditorActionListener { _, actionId, _ ->
+            if (actionId == EditorInfo.IME_ACTION_DONE) {
+                checkDigit(digit, binding, position)
+                true
+            } else {
+                false
+            }
+        }
+
+        binding.editText2.setOnEditorActionListener { _, actionId, _ ->
+            if (actionId == EditorInfo.IME_ACTION_DONE) {
+                checkDigit(digit, binding, position)
+                true
+            } else {
+                false
+            }
+        }
+
+        binding.editText3.setOnEditorActionListener { _, actionId, _ ->
+            if (actionId == EditorInfo.IME_ACTION_DONE) {
+                checkDigit(digit, binding, position)
+                true
+            } else {
+                false
+            }
+        }
+
+        binding.editText4.setOnEditorActionListener { _, actionId, _ ->
+            if (actionId == EditorInfo.IME_ACTION_DONE) {
+                checkDigit(digit, binding, position)
+                true
+            } else {
+                false
+            }
+        }
+
+        binding.editText5.setOnEditorActionListener { _, actionId, _ ->
+            if (actionId == EditorInfo.IME_ACTION_DONE) {
+                checkDigit(digit, binding, position)
+                true
+            } else {
+                false
+            }
+        }
+
+        binding.editText6.setOnEditorActionListener { _, actionId, _ ->
+            if (actionId == EditorInfo.IME_ACTION_DONE) {
+                checkDigit(digit, binding, position)
+                true
+            } else {
+                false
+            }
+        }
+
+        binding.editText7.setOnEditorActionListener { _, actionId, _ ->
+            if (actionId == EditorInfo.IME_ACTION_DONE) {
+                checkDigit(digit, binding, position)
+                true
+            } else {
+                false
+            }
+        }
+//
+//        if (digit == 5) {
+//            binding.editText4.imeOptions = EditorInfo.IME_ACTION_DONE
+//            binding.editText4.setOnEditorActionListener { _, actionId, _ ->
+//                if (actionId == EditorInfo.IME_ACTION_DONE) {
+//                    if (binding.editText.text.isNotEmpty() &&
+//                        binding.editText1.text.isNotEmpty() &&
+//                        binding.editText2.text.isNotEmpty() &&
+//                        binding.editText3.text.isNotEmpty() &&
+//                        binding.editText4.text.isNotEmpty()
+//                    ) {
+//                        for (i in 0 until homeRepository.fiveOfList.size) {
+//                            homeRepository.addInList(i, homeRepository.fiveOfList[i].type, binding)
+//                        }
+//
+//                        homeRepository.fiveOfList.clear()
+//                        homeRepository.fiveOfList = Utils.items(5)
+//                        Utils.hideKeyBoard(mContext, binding.editText)
+//                        homeRepository.checkIsWrite(position)
+//                    } else {
+//                        Toast.makeText(mContext, "Fill the row ", Toast.LENGTH_SHORT).show()
+//                    }
+//                    true
+//                } else false
+//            }
+//        }
+//
+//        if (digit == 6) {
+//            binding.editText5.imeOptions = EditorInfo.IME_ACTION_DONE
+//            binding.editText5.setOnEditorActionListener { _, actionId, _ ->
+//                if (actionId == EditorInfo.IME_ACTION_DONE) {
+//                    for (i in 0 until homeRepository.sixOfList.size) {
+//                        homeRepository.addInList(i, homeRepository.sixOfList[i].type, binding)
+//                    }
+//                    homeRepository.sixOfList.clear()
+//                    homeRepository.sixOfList = Utils.items(6)
+//                    Utils.hideKeyBoard(mContext, binding.editText)
+//                    homeRepository.checkIsWrite(position)
+//                    true
+//                } else false
+//            }
+//        }
+//
+//        if (digit == 7) {
+//            binding.editText6.imeOptions = EditorInfo.IME_ACTION_DONE
+//            binding.editText6.setOnEditorActionListener { _, actionId, _ ->
+//                if (actionId == EditorInfo.IME_ACTION_DONE) {
+//                    for (i in 0 until homeRepository.sevenOfList.size) {
+//                        homeRepository.addInList(i, homeRepository.sevenOfList[i].type, binding)
+//                    }
+//                    homeRepository.sevenOfList.clear()
+//                    homeRepository.sevenOfList = Utils.items(7)
+//                    Utils.hideKeyBoard(mContext, binding.editText)
+//                    homeRepository.checkIsWrite(position)
+//                    Utils.hideKeyBoard(mContext, binding.editText)
+//                    true
+//                } else false
+//            }
+//        }
+//
+//        if (digit == 8) {
+//            binding.editText7.imeOptions = EditorInfo.IME_ACTION_DONE
+//            binding.editText7.setOnEditorActionListener { _, actionId, _ ->
+//                if (actionId == EditorInfo.IME_ACTION_DONE) {
+//                    for (i in 0 until homeRepository.fiveOfList.size) {
+//                        homeRepository.addInList(i, homeRepository.eightOfList[i].type, binding)
+//                    }
+//                    homeRepository.eightOfList.clear()
+//                    homeRepository.eightOfList = Utils.items(8)
+//                    homeRepository.checkIsWrite(position)
+//                    Utils.hideKeyBoard(mContext, binding.editText)
+//                    true
+//                } else false
+//            }
+//        }
+    }
+
+    private fun checkDigit(digit: Int, binding: MyItemBinding, position: Int) {
         if (digit == 5) {
-            binding.editText4.imeOptions = EditorInfo.IME_ACTION_DONE
-            binding.editText4.setOnEditorActionListener { v, actionId, event ->
-                if (actionId == EditorInfo.IME_ACTION_DONE) {
-                    for (i in 0 until homeRepository.fiveOfList.size) {
-                        if (ItemType.GREY == homeRepository.fiveOfList[i].type) {
-                            Log.e("GREY size", i.toString())
-                        }
+            if (binding.editText.text.isNotEmpty() &&
+                binding.editText1.text.isNotEmpty() &&
+                binding.editText2.text.isNotEmpty() &&
+                binding.editText3.text.isNotEmpty() &&
+                binding.editText4.text.isNotEmpty()
+            ) {
+                for (i in 0 until homeRepository.fiveOfList.size) {
+                    homeRepository.addInList(i, homeRepository.fiveOfList[i].type, binding)
+                }
 
-                        if (ItemType.YELLOW == homeRepository.fiveOfList[i].type) {
-                            Log.e("YELLOW size", i.toString())
-                        }
-
-                        if (ItemType.GREEN == homeRepository.fiveOfList[i].type) {
-                            Log.e("GREEN size", i.toString())
-                        }
-                    }
-                    true
-                } else false
+                homeRepository.fiveOfList.clear()
+                homeRepository.fiveOfList = Utils.items(5)
+                Utils.hideKeyBoard(mContext, binding.editText)
+                homeRepository.checkIsWrite(position)
+            } else {
+                Toast.makeText(mContext, "Fill the row ", Toast.LENGTH_SHORT).show()
             }
         }
 
         if (digit == 6) {
-            binding.editText5.imeOptions = EditorInfo.IME_ACTION_DONE
+            if (binding.editText.text.isNotEmpty() &&
+                binding.editText1.text.isNotEmpty() &&
+                binding.editText2.text.isNotEmpty() &&
+                binding.editText3.text.isNotEmpty() &&
+                binding.editText4.text.isNotEmpty() &&
+                binding.editText5.text.isNotEmpty()
+            ) {
+                for (i in 0 until homeRepository.sixOfList.size) {
+                    homeRepository.addInList(i, homeRepository.sixOfList[i].type, binding)
+                }
+                homeRepository.sixOfList.clear()
+                homeRepository.sixOfList = Utils.items(6)
+                Utils.hideKeyBoard(mContext, binding.editText)
+                homeRepository.checkIsWrite(position)
+            } else {
+                Toast.makeText(mContext, "Fill the row ", Toast.LENGTH_SHORT).show()
+            }
         }
 
         if (digit == 7) {
-            binding.editText6.imeOptions = EditorInfo.IME_ACTION_DONE
+            if (binding.editText.text.isNotEmpty() &&
+                binding.editText1.text.isNotEmpty() &&
+                binding.editText2.text.isNotEmpty() &&
+                binding.editText3.text.isNotEmpty() &&
+                binding.editText4.text.isNotEmpty() &&
+                binding.editText5.text.isNotEmpty() &&
+                binding.editText6.text.isNotEmpty()
+            ) {
+                for (i in 0 until homeRepository.sixOfList.size) {
+                    homeRepository.addInList(i, homeRepository.sevenOfList[i].type, binding)
+                }
+                homeRepository.sevenOfList.clear()
+                homeRepository.sevenOfList = Utils.items(6)
+                Utils.hideKeyBoard(mContext, binding.editText)
+                homeRepository.checkIsWrite(position)
+            } else {
+                Toast.makeText(mContext, "Fill the row ", Toast.LENGTH_SHORT).show()
+            }
         }
 
         if (digit == 8) {
-            binding.editText7.imeOptions = EditorInfo.IME_ACTION_DONE
-        }
-    }
-
-    class FocusEditText(private val mContext: Context, private val selectedEditText : EditText, val binding: Item1Binding) : View.OnFocusChangeListener {
-        override fun onFocusChange(view: View?, isSelect: Boolean) {
-                binding.editText.backgroundTintList = ContextCompat.getColorStateList(mContext, R.color.grey)
-                binding.editText1.backgroundTintList = ContextCompat.getColorStateList(mContext, R.color.grey)
-                binding.editText2.backgroundTintList = ContextCompat.getColorStateList(mContext, R.color.grey)
-                binding.editText3.backgroundTintList = ContextCompat.getColorStateList(mContext, R.color.grey)
-                binding.editText4.backgroundTintList = ContextCompat.getColorStateList(mContext, R.color.grey)
-                binding.editText5.backgroundTintList = ContextCompat.getColorStateList(mContext, R.color.grey)
-                binding.editText6.backgroundTintList = ContextCompat.getColorStateList(mContext, R.color.grey)
-                binding.editText7.backgroundTintList = ContextCompat.getColorStateList(mContext, R.color.grey)
-                selectedEditText.backgroundTintList = ContextCompat.getColorStateList(mContext, R.color.sky)
+            if (binding.editText.text.isNotEmpty() &&
+                binding.editText1.text.isNotEmpty() &&
+                binding.editText2.text.isNotEmpty() &&
+                binding.editText3.text.isNotEmpty() &&
+                binding.editText4.text.isNotEmpty() &&
+                binding.editText5.text.isNotEmpty() &&
+                binding.editText6.text.isNotEmpty() &&
+                binding.editText7.text.isNotEmpty()
+            ) {
+                for (i in 0 until homeRepository.sixOfList.size) {
+                    homeRepository.addInList(i, homeRepository.eightOfList[i].type, binding)
+                }
+                homeRepository.eightOfList.clear()
+                homeRepository.eightOfList = Utils.items(6)
+                Utils.hideKeyBoard(mContext, binding.editText)
+                homeRepository.checkIsWrite(position)
+            } else {
+                Toast.makeText(mContext, "Fill the row ", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 }

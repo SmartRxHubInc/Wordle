@@ -7,8 +7,8 @@ import java.io.IOException
 import java.io.InputStream
 
 open class BaseActivity : AppCompatActivity() {
-    private val listDictionaryData = ArrayList<DictionaryData>()
-    fun getDigitWiseDictionary(): ArrayList<DictionaryData>? {
+    private val listDictionaryData = ArrayList<String>()
+    fun getDigitWiseDictionary(): ArrayList<String>? {
         try {
             val inputStream: InputStream = assets.open("dictionary.json")
             val size: Int = inputStream.available()
@@ -23,7 +23,7 @@ open class BaseActivity : AppCompatActivity() {
                         !jsonArray[i].toString().contains("-") &&
                         !jsonArray[i].toString().contains("_")
                     ) {
-                        listDictionaryData.add(DictionaryData(jsonArray[i].toString()))
+                        listDictionaryData.add(jsonArray[i].toString())
                     }
                 }
             }
@@ -35,13 +35,13 @@ open class BaseActivity : AppCompatActivity() {
         }
     }
 
-    fun digitWiseData(limits: Int): ArrayList<DictionaryData> {
-        val dictionaryData = ArrayList<DictionaryData>()
+    fun digitWiseData(limits: Int): ArrayList<String> {
+        val dictionaryData = ArrayList<String>()
         if (listDictionaryData.isNotEmpty()) {
             dictionaryData.clear()
             for (i in 0 until listDictionaryData.size) {
-                val haveDigit = listDictionaryData[i].text.filter { it.isDigit() }
-                if (haveDigit.isEmpty() && listDictionaryData[i].text.length == limits) {
+                val haveDigit = listDictionaryData[i].filter { it.isDigit() }
+                if (haveDigit.isEmpty() && listDictionaryData[i].length == limits) {
                     dictionaryData.add(listDictionaryData[i])
                 }
             }

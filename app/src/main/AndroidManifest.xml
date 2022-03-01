@@ -25,18 +25,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".ui.home.HomeActivity"
             android:exported="true"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan"
             android:theme="@style/Theme.NoToolbar" />
+
         <activity
             android:name=".ui.demo.DemoActivity"
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.NoToolbar" >
-            
+
         </activity>
 
         <meta-data

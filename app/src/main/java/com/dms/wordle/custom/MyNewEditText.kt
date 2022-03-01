@@ -20,7 +20,7 @@ class MyEditTextView(
         } else if (text.isEmpty()) {
             etPrev.requestFocus()
         }
-        list[writePosition].char = text
+//        list[writePosition].char = text
     }
 
     override fun beforeTextChanged(arg0: CharSequence, arg1: Int, arg2: Int, arg3: Int) {}

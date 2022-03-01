@@ -7,25 +7,27 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.dms.wordle.R
-import com.dms.wordle.databinding.DictionaryItemBinding
-import com.dms.wordle.models.DictionaryData
+import com.dms.wordle.ui.home.HomeRepository
 import com.dms.wordle.viewHolders.DictionaryViewHolder
 
-class DictionaryAdapter(private val mContext: Context) :
+class DictionaryAdapter(private val mContext: Context, private val homeRepository: HomeRepository) :
     RecyclerView.Adapter<DictionaryViewHolder>() {
 
-    private val listOfItem = ArrayList<DictionaryData>()
+    private val listOfItem = ArrayList<String>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DictionaryViewHolder {
-        return DictionaryViewHolder(DataBindingUtil.inflate(
-            LayoutInflater.from(mContext),
-            R.layout.dictionary_item,
-            parent,
-            false
-        ))
+        return DictionaryViewHolder(
+            DataBindingUtil.inflate(
+                LayoutInflater.from(mContext),
+                R.layout.dictionary_item,
+                parent,
+                false
+            )
+        )
     }
 
     override fun onBindViewHolder(holder: DictionaryViewHolder, position: Int) {
+        holder.binding.homeRepository = homeRepository
         holder.binding.item = listOfItem[position]
     }
 
@@ -34,7 +36,7 @@ class DictionaryAdapter(private val mContext: Context) :
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    fun addItems(items: ArrayList<DictionaryData>) {
+    fun addItems(items: ArrayList<String>) {
         listOfItem.clear()
         listOfItem.addAll(items)
         notifyDataSetChanged()
