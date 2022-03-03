@@ -7,7 +7,6 @@ import android.view.WindowManager
 import androidx.activity.viewModels
 import com.dms.wordle.BaseActivity
 import com.dms.wordle.R
-import com.dms.wordle.ui.demo.DemoActivity
 import com.dms.wordle.ui.home.HomeActivity
 
 

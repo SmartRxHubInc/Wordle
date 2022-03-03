@@ -19,6 +19,8 @@ class GenericTextWatcher (
             currentView.setText(text[text.length - 1].toString())
             currentView.setSelection(1)
         }
+        currentView.setSelection(currentView.text.length)
+        nextView!!.setSelection(nextView.text.length)
     }
 
     override fun beforeTextChanged(arg0: CharSequence, arg1: Int, arg2: Int, arg3: Int) {

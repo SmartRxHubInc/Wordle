@@ -8,11 +8,10 @@
     <string name="five_title">5</string>
     <string name="filter_title">Filter</string>
 
-
     <string name="app_id">ca-app-pub-5797286914124466~9442933109</string>
     <string name="unit_id">ca-app-pub-5797286914124466/2778286559</string>
 
-
+    <string name="validation_char">ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
 
 
 </resources>

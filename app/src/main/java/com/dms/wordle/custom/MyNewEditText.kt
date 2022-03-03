@@ -9,9 +9,6 @@ import com.dms.wordle.models.ChatItem
 class MyEditTextView(
     private val etNext: EditText,
     private val etPrev: EditText,
-    var position: Int,
-    var writePosition: Int,
-    var list: ArrayList<ChatItem>
 ) : TextWatcher {
     override fun afterTextChanged(editable: Editable) {
         val text = editable.toString()
@@ -20,7 +17,8 @@ class MyEditTextView(
         } else if (text.isEmpty()) {
             etPrev.requestFocus()
         }
-//        list[writePosition].char = text
+        etNext.setSelection(etNext.text.length)
+        etPrev.setSelection(etPrev.text.length)
     }
 
     override fun beforeTextChanged(arg0: CharSequence, arg1: Int, arg2: Int, arg3: Int) {}

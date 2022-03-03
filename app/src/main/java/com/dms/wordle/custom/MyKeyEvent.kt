@@ -13,7 +13,6 @@ class MyKeyEvent(private val currentView: EditText, private val previousView: Ed
             previousView?.requestFocus()
             return true
         }
-
         return false
     }
 }
