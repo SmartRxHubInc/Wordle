@@ -5,6 +5,7 @@ import androidx.databinding.DataBindingUtil
 import com.dms.wordle.BaseActivity
 import com.dms.wordle.R
 import com.dms.wordle.databinding.ActivityMainBinding
+import com.dms.wordle.utility.Utils
 import kotlin.math.log
 
 
@@ -15,6 +16,7 @@ class HomeActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         getDigitWiseDictionary()
+        Utils.alertDialog(this)
         HomeRepository(this,)
     }
 }

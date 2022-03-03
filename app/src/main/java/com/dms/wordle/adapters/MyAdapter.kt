@@ -85,6 +85,10 @@ class MyAdapter(
             }
         }
 
+        if(position == mList.size -1) {
+//            homeRepository.manageUI()
+        }
+
 //        holder.binding.editText.setOnClickListener {
 //            setColor(holder.binding.editText, position, 0, digit)
 //        }

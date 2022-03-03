@@ -5,6 +5,8 @@
       <map>
         <entry key="..\:/Android Project Git/Wordle/app/src/main/res/drawable/border.xml" value="0.2111111111111111" />
         <entry key="..\:/Android Project Git/Wordle/app/src/main/res/drawable/custom_cursor.xml" value="0.22592592592592592" />
+        <entry key="..\:/Android Project Git/Wordle/app/src/main/res/drawable/green_border.xml" value="0.2518518518518518" />
+        <entry key="..\:/Android Project Git/Wordle/app/src/main/res/drawable/yellow_border.xml" value="0.2518518518518518" />
         <entry key="..\:/Android Project Git/Wordle/app/src/main/res/layout/activity_demo.xml" value="0.2421875" />
         <entry key="..\:/Android Project Git/Wordle/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Android Project Git/Wordle/app/src/main/res/layout/boxes_item.xml" value="0.2" />
@@ -13,6 +15,9 @@
         <entry key="..\:/Android Project Git/Wordle/app/src/main/res/layout/item.xml" value="0.2" />
         <entry key="..\:/Android Project Git/Wordle/app/src/main/res/layout/item1.xml" value="0.2" />
         <entry key="..\:/Android Project Git/Wordle/app/src/main/res/layout/my_item.xml" value="0.264" />
+        <entry key="..\:/Android Project Git/Wordle/app/src/main/res/layout/my_layout.xml" value="0.2" />
+        <entry key="..\:/Android Project Git/Wordle/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.22870370370370371" />
+        <entry key="..\:/Android Project Git/Wordle/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.13802083333333334" />
         <entry key="..\:/Android projects/Wordle/app/src/main/res/drawable/button_bg.xml" value="0.2111111111111111" />
         <entry key="..\:/Android projects/Wordle/app/src/main/res/drawable/selected_bg.xml" value="0.25833333333333336" />
         <entry key="..\:/Android projects/Wordle/app/src/main/res/drawable/white_rectangle.xml" value="0.25833333333333336" />

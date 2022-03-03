@@ -11,9 +11,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Wordle">
-        <activity
-            android:name=".ui.splash2.NextScreenActivity"
-            android:exported="true" />
 
         <activity
             android:name=".ui.splash.SplashActivity"
@@ -33,18 +30,9 @@
             android:windowSoftInputMode="adjustPan"
             android:theme="@style/Theme.NoToolbar" />
 
-        <activity
-            android:name=".ui.demo.DemoActivity"
-            android:exported="true"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.NoToolbar" >
-
-        </activity>
-
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="@string/app_id" />
-
     </application>
 
 </manifest>

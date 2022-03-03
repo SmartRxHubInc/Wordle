@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
@@ -11,296 +10,522 @@
     </data>
 
 
+    <!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        app:layout_constraintEnd_toEndOf="@+id/cardView4"-->
+    <!--        app:layout_constraintStart_toEndOf="@+id/cardView4">-->
+
+    <!--        <androidx.cardview.widget.CardView-->
+    <!--            android:id="@+id/cardView1"-->
+    <!--            android:layout_width="0dp"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_margin="@dimen/margin_xsmall"-->
+    <!--            android:layout_marginBottom="2dp"-->
+    <!--            app:cardCornerRadius="@dimen/margin_small"-->
+    <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--            app:layout_constraintEnd_toStartOf="@+id/cardView2"-->
+    <!--            app:layout_constraintHorizontal_bias="0.5"-->
+    <!--            app:layout_constraintStart_toStartOf="parent"-->
+    <!--            app:layout_constraintTop_toTopOf="parent">-->
+
+    <!--            <EditText-->
+    <!--                android:id="@+id/editText"-->
+    <!--                style="@style/boxes"-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="55dp"-->
+    <!--                android:background="@drawable/border"-->
+    <!--                android:backgroundTint="@color/grey"-->
+    <!--                android:cursorVisible="false"-->
+    <!--                android:digits="@string/validation_char"-->
+    <!--                android:ems="10"-->
+    <!--                android:gravity="center"-->
+    <!--                android:imeOptions="actionDone"-->
+    <!--                android:importantForAutofill="no"-->
+    <!--                android:inputType="textCapSentences"-->
+    <!--                android:longClickable="false"-->
+    <!--                android:maxLength="1"-->
+    <!--                android:padding="@dimen/padding_large"-->
+    <!--                android:singleLine="true"-->
+    <!--                android:textColor="@color/white"-->
+    <!--                android:textColorHint="@color/grey_100"-->
+    <!--                android:textStyle="bold" />-->
+
+    <!--        </androidx.cardview.widget.CardView>-->
+
+    <!--        <androidx.cardview.widget.CardView-->
+    <!--            android:id="@+id/cardView2"-->
+    <!--            android:layout_width="0dp"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_margin="@dimen/margin_xsmall"-->
+    <!--            app:cardCornerRadius="10dp"-->
+    <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--            app:layout_constraintEnd_toStartOf="@+id/cardView3"-->
+    <!--            app:layout_constraintHorizontal_bias="0.5"-->
+    <!--            app:layout_constraintStart_toEndOf="@+id/cardView1"-->
+    <!--            app:layout_constraintTop_toTopOf="parent">-->
+
+    <!--            <EditText-->
+    <!--                android:id="@+id/editText1"-->
+    <!--                style="@style/boxes"-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="55dp"-->
+    <!--                android:background="@drawable/border"-->
+
+    <!--                android:cursorVisible="false"-->
+    <!--                android:digits="@string/validation_char"-->
+    <!--                android:ems="10"-->
+    <!--                android:gravity="center"-->
+    <!--                android:imeOptions="actionDone"-->
+    <!--                android:importantForAutofill="no"-->
+    <!--                android:inputType="textCapSentences"-->
+    <!--                android:longClickable="false"-->
+    <!--                android:maxLength="1"-->
+    <!--                android:padding="@dimen/padding_large"-->
+    <!--                android:singleLine="true"-->
+    <!--                android:textColor="@color/white"-->
+    <!--                android:textColorHint="@color/grey_100"-->
+    <!--                android:textStyle="bold" />-->
+
+    <!--        </androidx.cardview.widget.CardView>-->
+
+    <!--        <androidx.cardview.widget.CardView-->
+    <!--            android:id="@+id/cardView3"-->
+    <!--            android:layout_width="0dp"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_margin="@dimen/margin_xsmall"-->
+    <!--            app:cardCornerRadius="10dp"-->
+    <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--            app:layout_constraintEnd_toStartOf="@+id/cardView4"-->
+    <!--            app:layout_constraintHorizontal_bias="0.5"-->
+    <!--            app:layout_constraintStart_toEndOf="@+id/cardView2"-->
+    <!--            app:layout_constraintTop_toTopOf="parent">-->
+
+    <!--            <EditText-->
+    <!--                android:id="@+id/editText2"-->
+    <!--                style="@style/boxes"-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="55dp"-->
+    <!--                android:background="@drawable/border"-->
+    <!--                android:backgroundTint="@color/grey"-->
+    <!--                android:cursorVisible="false"-->
+    <!--                android:digits="@string/validation_char"-->
+    <!--                android:ems="10"-->
+    <!--                android:gravity="center"-->
+    <!--                android:imeOptions="actionDone"-->
+    <!--                android:importantForAutofill="no"-->
+    <!--                android:inputType="textCapSentences"-->
+    <!--                android:longClickable="false"-->
+    <!--                android:maxLength="1"-->
+    <!--                android:padding="@dimen/padding_large"-->
+    <!--                android:singleLine="true"-->
+    <!--                android:textColor="@color/white"-->
+    <!--                android:textColorHint="@color/grey_100"-->
+    <!--                android:textStyle="bold" />-->
+
+    <!--        </androidx.cardview.widget.CardView>-->
+
+    <!--        <androidx.cardview.widget.CardView-->
+    <!--            android:id="@+id/cardView4"-->
+    <!--            android:layout_width="0dp"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_margin="@dimen/margin_xsmall"-->
+    <!--            app:cardCornerRadius="10dp"-->
+    <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--            app:layout_constraintEnd_toStartOf="@+id/cardView5"-->
+    <!--            app:layout_constraintHorizontal_bias="0.5"-->
+    <!--            app:layout_constraintStart_toEndOf="@+id/cardView3"-->
+    <!--            app:layout_constraintTop_toTopOf="parent">-->
+
+    <!--            <EditText-->
+    <!--                android:id="@+id/editText3"-->
+    <!--                style="@style/boxes"-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="55dp"-->
+    <!--                android:background="@drawable/border"-->
+    <!--                android:backgroundTint="@color/grey"-->
+    <!--                android:cursorVisible="false"-->
+    <!--                android:digits="@string/validation_char"-->
+    <!--                android:ems="10"-->
+    <!--                android:gravity="center"-->
+    <!--                android:imeOptions="actionDone"-->
+    <!--                android:importantForAutofill="no"-->
+    <!--                android:inputType="textCapSentences"-->
+    <!--                android:longClickable="false"-->
+    <!--                android:maxLength="1"-->
+    <!--                android:padding="@dimen/padding_large"-->
+    <!--                android:singleLine="true"-->
+    <!--                android:textColor="@color/white"-->
+    <!--                android:textColorHint="@color/grey_100"-->
+    <!--                android:textStyle="bold" />-->
+
+    <!--        </androidx.cardview.widget.CardView>-->
+
+    <!--        <androidx.cardview.widget.CardView-->
+    <!--            android:id="@+id/cardView5"-->
+    <!--            android:layout_width="0dp"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_margin="@dimen/margin_xsmall"-->
+    <!--            app:cardCornerRadius="10dp"-->
+    <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--            app:layout_constraintEnd_toStartOf="@+id/cardView6"-->
+    <!--            app:layout_constraintHorizontal_bias="0.5"-->
+    <!--            app:layout_constraintStart_toEndOf="@+id/cardView4"-->
+    <!--            app:layout_constraintTop_toTopOf="parent">-->
+
+    <!--            <EditText-->
+    <!--                android:id="@+id/editText4"-->
+    <!--                style="@style/boxes"-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="55dp"-->
+    <!--                android:background="@drawable/border"-->
+    <!--                android:backgroundTint="@color/grey"-->
+    <!--                android:cursorVisible="false"-->
+    <!--                android:digits="@string/validation_char"-->
+    <!--                android:ems="10"-->
+    <!--                android:gravity="center"-->
+    <!--                android:imeOptions="actionDone"-->
+    <!--                android:importantForAutofill="no"-->
+    <!--                android:inputType="textCapSentences"-->
+    <!--                android:maxLength="1"-->
+    <!--                android:padding="@dimen/padding_large"-->
+    <!--                android:singleLine="true"-->
+    <!--                android:textColor="@color/white"-->
+    <!--                android:textColorHint="@color/grey_100"-->
+    <!--                android:textStyle="bold" />-->
+
+    <!--        </androidx.cardview.widget.CardView>-->
+
+    <!--        <androidx.cardview.widget.CardView-->
+    <!--            android:id="@+id/cardView6"-->
+    <!--            android:layout_width="0dp"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_margin="@dimen/margin_xsmall"-->
+    <!--            app:cardCornerRadius="10dp"-->
+    <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--            app:layout_constraintEnd_toStartOf="@+id/cardView7"-->
+    <!--            app:layout_constraintHorizontal_bias="0.5"-->
+    <!--            app:layout_constraintStart_toEndOf="@+id/cardView5"-->
+    <!--            app:layout_constraintTop_toTopOf="parent">-->
+
+    <!--            <EditText-->
+    <!--                android:id="@+id/editText5"-->
+    <!--                style="@style/boxes"-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="55dp"-->
+    <!--                android:background="@drawable/border"-->
+    <!--                android:backgroundTint="@color/grey"-->
+    <!--                android:cursorVisible="false"-->
+    <!--                android:digits="@string/validation_char"-->
+    <!--                android:ems="10"-->
+    <!--                android:gravity="center"-->
+    <!--                android:imeOptions="actionDone"-->
+    <!--                android:importantForAutofill="no"-->
+    <!--                android:inputType="textCapSentences"-->
+    <!--                android:longClickable="false"-->
+    <!--                android:maxLength="1"-->
+    <!--                android:padding="@dimen/padding_large"-->
+    <!--                android:singleLine="true"-->
+    <!--                android:textColor="@color/white"-->
+    <!--                android:textColorHint="@color/grey_100"-->
+    <!--                android:textStyle="bold" />-->
+    <!--        </androidx.cardview.widget.CardView>-->
+
+    <!--        <androidx.cardview.widget.CardView-->
+    <!--            android:id="@+id/cardView7"-->
+    <!--            android:layout_width="0dp"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_margin="@dimen/margin_xsmall"-->
+    <!--            app:cardCornerRadius="10dp"-->
+    <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--            app:layout_constraintEnd_toStartOf="@+id/cardView8"-->
+    <!--            app:layout_constraintHorizontal_bias="0.5"-->
+    <!--            app:layout_constraintStart_toEndOf="@+id/cardView6"-->
+    <!--            app:layout_constraintTop_toTopOf="parent">-->
+
+    <!--            <EditText-->
+    <!--                android:id="@+id/editText6"-->
+    <!--                style="@style/boxes"-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="55dp"-->
+    <!--                android:background="@drawable/border"-->
+    <!--                android:backgroundTint="@color/grey"-->
+    <!--                android:cursorVisible="false"-->
+    <!--                android:digits="@string/validation_char"-->
+    <!--                android:ems="10"-->
+    <!--                android:gravity="center"-->
+    <!--                android:imeOptions="actionDone"-->
+    <!--                android:importantForAutofill="no"-->
+    <!--                android:inputType="textCapSentences"-->
+    <!--                android:longClickable="false"-->
+    <!--                android:maxLength="1"-->
+    <!--                android:padding="@dimen/padding_large"-->
+    <!--                android:singleLine="true"-->
+    <!--                android:textColor="@color/white"-->
+    <!--                android:textColorHint="@color/grey_100"-->
+    <!--                android:textStyle="bold" />-->
+    <!--        </androidx.cardview.widget.CardView>-->
+
+    <!--        <androidx.cardview.widget.CardView-->
+    <!--            android:id="@+id/cardView8"-->
+    <!--            android:layout_width="0dp"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_margin="@dimen/margin_xsmall"-->
+    <!--            app:cardCornerRadius="10dp"-->
+    <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--            app:layout_constraintEnd_toEndOf="parent"-->
+    <!--            app:layout_constraintHorizontal_bias="0.5"-->
+    <!--            app:layout_constraintStart_toEndOf="@+id/cardView7"-->
+    <!--            app:layout_constraintTop_toTopOf="parent">-->
+
+    <!--            <EditText-->
+    <!--                android:id="@+id/editText7"-->
+    <!--                style="@style/boxes"-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="55dp"-->
+    <!--                android:background="@drawable/border"-->
+    <!--                android:backgroundTint="@color/grey"-->
+    <!--                android:cursorVisible="false"-->
+    <!--                android:digits="@string/validation_char"-->
+    <!--                android:ems="10"-->
+    <!--                android:gravity="center"-->
+    <!--                android:imeOptions="actionDone"-->
+    <!--                android:importantForAutofill="no"-->
+    <!--                android:inputType="textCapSentences"-->
+    <!--                android:longClickable="false"-->
+    <!--                android:maxLength="1"-->
+    <!--                android:padding="@dimen/padding_large"-->
+    <!--                android:singleLine="true"-->
+    <!--                android:textColor="@color/white"-->
+    <!--                android:textColorHint="@color/grey"-->
+    <!--                android:textStyle="bold" />-->
+
+    <!--        </androidx.cardview.widget.CardView>-->
+    <!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="@+id/cardView4"
-        app:layout_constraintStart_toEndOf="@+id/cardView4">
+        android:layout_height="wrap_content">
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardView1"
+        <EditText
+            android:id="@+id/editText"
+            style="@style/boxes"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="55dp"
             android:layout_margin="@dimen/margin_xsmall"
-            android:layout_marginBottom="2dp"
-            app:cardCornerRadius="10dp"
+            android:background="@drawable/grey_border"
+            android:cursorVisible="false"
+            android:digits="@string/validation_char"
+            android:ems="10"
+            android:gravity="center"
+            android:imeOptions="actionDone"
+            android:importantForAutofill="no"
+            android:inputType="textCapSentences"
+            android:longClickable="false"
+            android:maxLength="1"
+            android:padding="@dimen/padding_large"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            android:textColorHint="@color/grey"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/cardView2"
+            app:layout_constraintEnd_toStartOf="@+id/editText1"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <EditText
-                android:id="@+id/editText"
-                style="@style/boxes"
-                android:layout_width="wrap_content"
-                android:layout_height="55dp"
-                android:background="@drawable/border"
-                android:backgroundTint="@color/grey"
-                android:cursorVisible="false"
-                android:digits="@string/validation_char"
-                android:ems="10"
-                android:gravity="center"
-                android:imeOptions="actionDone"
-                android:importantForAutofill="no"
-                android:inputType="textCapSentences"
-                android:longClickable="false"
-                android:maxLength="1"
-                android:padding="@dimen/padding_large"
-                android:singleLine="true"
-                android:textColor="@color/white"
-                android:textColorHint="@color/grey_100"
-                android:textStyle="bold" />
 
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardView2"
+        <EditText
+            android:id="@+id/editText1"
+            style="@style/boxes"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="55dp"
             android:layout_margin="@dimen/margin_xsmall"
-            app:cardCornerRadius="10dp"
+            android:background="@drawable/grey_border"
+            android:cursorVisible="false"
+            android:digits="@string/validation_char"
+            android:ems="10"
+            android:gravity="center"
+            android:imeOptions="actionDone"
+            android:importantForAutofill="no"
+            android:inputType="textCapSentences"
+            android:longClickable="false"
+            android:maxLength="1"
+            android:padding="@dimen/padding_large"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            android:textColorHint="@color/grey"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/cardView3"
+            app:layout_constraintEnd_toStartOf="@+id/editText2"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/cardView1"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintStart_toEndOf="@+id/editText"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <EditText
-                android:id="@+id/editText1"
-                style="@style/boxes"
-                android:layout_width="wrap_content"
-                android:layout_height="55dp"
-                android:background="@drawable/border"
-                android:backgroundTint="@color/grey"
-                android:cursorVisible="false"
-                android:digits="@string/validation_char"
-                android:ems="10"
-                android:gravity="center"
-                android:imeOptions="actionDone"
-                android:importantForAutofill="no"
-                android:inputType="textCapSentences"
-                android:longClickable="false"
-                android:maxLength="1"
-                android:padding="@dimen/padding_large"
-                android:singleLine="true"
-                android:textColor="@color/white"
-                android:textColorHint="@color/grey_100"
-                android:textStyle="bold" />
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardView3"
+        <EditText
+            android:id="@+id/editText2"
+            style="@style/boxes"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="55dp"
             android:layout_margin="@dimen/margin_xsmall"
-            app:cardCornerRadius="10dp"
+            android:background="@drawable/grey_border"
+            android:cursorVisible="false"
+            android:digits="@string/validation_char"
+            android:ems="10"
+            android:gravity="center"
+            android:imeOptions="actionDone"
+            android:importantForAutofill="no"
+            android:inputType="textCapSentences"
+            android:longClickable="false"
+            android:maxLength="1"
+            android:padding="@dimen/padding_large"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            android:textColorHint="@color/grey"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/cardView4"
+            app:layout_constraintEnd_toStartOf="@+id/editText3"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/cardView2"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintStart_toEndOf="@+id/editText1"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <EditText
-                android:id="@+id/editText2"
-                style="@style/boxes"
-                android:layout_width="wrap_content"
-                android:layout_height="55dp"
-                android:background="@drawable/border"
-                android:backgroundTint="@color/grey"
-                android:cursorVisible="false"
-                android:digits="@string/validation_char"
-                android:ems="10"
-                android:gravity="center"
-                android:imeOptions="actionDone"
-                android:importantForAutofill="no"
-                android:inputType="textCapSentences"
-                android:longClickable="false"
-                android:maxLength="1"
-                android:padding="@dimen/padding_large"
-                android:singleLine="true"
-                android:textColor="@color/white"
-                android:textColorHint="@color/grey_100"
-                android:textStyle="bold" />
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardView4"
+        <EditText
+            android:id="@+id/editText3"
+            style="@style/boxes"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="55dp"
             android:layout_margin="@dimen/margin_xsmall"
-            app:cardCornerRadius="10dp"
+            android:background="@drawable/grey_border"
+            android:cursorVisible="false"
+            android:digits="@string/validation_char"
+            android:ems="10"
+            android:gravity="center"
+            android:imeOptions="actionDone"
+            android:importantForAutofill="no"
+            android:inputType="textCapSentences"
+            android:longClickable="false"
+            android:maxLength="1"
+            android:padding="@dimen/padding_large"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            android:textColorHint="@color/grey"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/cardView5"
+            app:layout_constraintEnd_toStartOf="@+id/editText4"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/cardView3"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintStart_toEndOf="@+id/editText2"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <EditText
-                android:id="@+id/editText3"
-                style="@style/boxes"
-                android:layout_width="wrap_content"
-                android:layout_height="55dp"
-                android:background="@drawable/border"
-                android:backgroundTint="@color/grey"
-                android:cursorVisible="false"
-                android:digits="@string/validation_char"
-                android:ems="10"
-                android:gravity="center"
-                android:imeOptions="actionDone"
-                android:importantForAutofill="no"
-                android:inputType="textCapSentences"
-                android:longClickable="false"
-                android:maxLength="1"
-                android:padding="@dimen/padding_large"
-                android:singleLine="true"
-                android:textColor="@color/white"
-                android:textColorHint="@color/grey_100"
-                android:textStyle="bold" />
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardView5"
+        <EditText
+            android:id="@+id/editText4"
+            style="@style/boxes"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="55dp"
             android:layout_margin="@dimen/margin_xsmall"
-            app:cardCornerRadius="10dp"
+            android:background="@drawable/grey_border"
+            android:cursorVisible="false"
+            android:digits="@string/validation_char"
+            android:ems="10"
+            android:gravity="center"
+            android:imeOptions="actionDone"
+            android:importantForAutofill="no"
+            android:inputType="textCapSentences"
+            android:longClickable="false"
+            android:maxLength="1"
+            android:padding="@dimen/padding_large"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            android:textColorHint="@color/grey"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/cardView6"
+            app:layout_constraintEnd_toStartOf="@+id/editText5"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/cardView4"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintStart_toEndOf="@+id/editText3"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <EditText
-                android:id="@+id/editText4"
-                style="@style/boxes"
-                android:layout_width="wrap_content"
-                android:layout_height="55dp"
-                android:background="@drawable/border"
-                android:backgroundTint="@color/grey"
-                android:cursorVisible="false"
-                android:digits="@string/validation_char"
-                android:ems="10"
-                android:gravity="center"
-                android:imeOptions="actionDone"
-                android:importantForAutofill="no"
-                android:inputType="textCapSentences"
-                android:maxLength="1"
-                android:padding="@dimen/padding_large"
-                android:singleLine="true"
-                android:textColor="@color/white"
-                android:textColorHint="@color/grey_100"
-                android:textStyle="bold" />
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardView6"
+        <EditText
+            android:id="@+id/editText5"
+            style="@style/boxes"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="55dp"
             android:layout_margin="@dimen/margin_xsmall"
-            app:cardCornerRadius="10dp"
+            android:background="@drawable/grey_border"
+            android:cursorVisible="false"
+            android:digits="@string/validation_char"
+            android:ems="10"
+            android:gravity="center"
+            android:imeOptions="actionDone"
+            android:importantForAutofill="no"
+            android:inputType="textCapSentences"
+            android:longClickable="false"
+            android:maxLength="1"
+            android:padding="@dimen/padding_large"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            android:textColorHint="@color/grey"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/cardView7"
+            app:layout_constraintEnd_toStartOf="@+id/editText6"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/cardView5"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintStart_toEndOf="@+id/editText4"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <EditText
-                android:id="@+id/editText5"
-                style="@style/boxes"
-                android:layout_width="wrap_content"
-                android:layout_height="55dp"
-                android:background="@drawable/border"
-                android:backgroundTint="@color/grey"
-                android:cursorVisible="false"
-                android:digits="@string/validation_char"
-                android:ems="10"
-                android:gravity="center"
-                android:imeOptions="actionDone"
-                android:importantForAutofill="no"
-                android:inputType="textCapSentences"
-                android:longClickable="false"
-                android:maxLength="1"
-                android:padding="@dimen/padding_large"
-                android:singleLine="true"
-                android:textColor="@color/white"
-                android:textColorHint="@color/grey_100"
-                android:textStyle="bold" />
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardView7"
+        <EditText
+            android:id="@+id/editText6"
+            style="@style/boxes"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="55dp"
             android:layout_margin="@dimen/margin_xsmall"
-            app:cardCornerRadius="10dp"
+            android:background="@drawable/grey_border"
+            android:cursorVisible="false"
+            android:digits="@string/validation_char"
+            android:ems="10"
+            android:gravity="center"
+            android:imeOptions="actionDone"
+            android:importantForAutofill="no"
+            android:inputType="textCapSentences"
+            android:longClickable="false"
+            android:maxLength="1"
+            android:padding="@dimen/padding_large"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            android:textColorHint="@color/grey"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/cardView8"
+            app:layout_constraintEnd_toStartOf="@+id/editText7"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/cardView6"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintStart_toEndOf="@+id/editText5"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <EditText
-                android:id="@+id/editText6"
-                style="@style/boxes"
-                android:layout_width="wrap_content"
-                android:layout_height="55dp"
-                android:background="@drawable/border"
-                android:backgroundTint="@color/grey"
-                android:cursorVisible="false"
-                android:digits="@string/validation_char"
-                android:ems="10"
-                android:gravity="center"
-                android:imeOptions="actionDone"
-                android:importantForAutofill="no"
-                android:inputType="textCapSentences"
-                android:longClickable="false"
-                android:maxLength="1"
-                android:padding="@dimen/padding_large"
-                android:singleLine="true"
-                android:textColor="@color/white"
-                android:textColorHint="@color/grey_100"
-                android:textStyle="bold" />
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardView8"
+        <EditText
+            android:id="@+id/editText7"
+            style="@style/boxes"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="55dp"
             android:layout_margin="@dimen/margin_xsmall"
-            app:cardCornerRadius="10dp"
+            android:background="@drawable/grey_border"
+            android:cursorVisible="false"
+            android:digits="@string/validation_char"
+            android:ems="10"
+            android:gravity="center"
+            android:imeOptions="actionDone"
+            android:importantForAutofill="no"
+            android:inputType="textCapSentences"
+            android:longClickable="false"
+            android:maxLength="1"
+            android:padding="@dimen/padding_large"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            android:textColorHint="@color/grey"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/cardView7"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <EditText
-                android:id="@+id/editText7"
-                style="@style/boxes"
-                android:layout_width="wrap_content"
-                android:layout_height="55dp"
-                android:background="@drawable/border"
-                android:backgroundTint="@color/grey"
-                android:cursorVisible="false"
-                android:digits="@string/validation_char"
-                android:ems="10"
-                android:gravity="center"
-                android:imeOptions="actionDone"
-                android:importantForAutofill="no"
-                android:inputType="textCapSentences"
-                android:longClickable="false"
-                android:maxLength="1"
-                android:padding="@dimen/padding_large"
-                android:singleLine="true"
-                android:textColor="@color/white"
-                android:textColorHint="@color/grey"
-                android:textStyle="bold" />
-
-        </androidx.cardview.widget.CardView>
+            app:layout_constraintStart_toEndOf="@+id/editText6"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>
+
+

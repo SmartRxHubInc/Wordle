@@ -12,6 +12,8 @@
     <string name="unit_id">ca-app-pub-5797286914124466/2778286559</string>
 
     <string name="validation_char">ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="message">Please enter the seed word to start.</string>
+    <string name="ok_title">OK</string>
 
 
 </resources>

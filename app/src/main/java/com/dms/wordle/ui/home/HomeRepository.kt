@@ -13,9 +13,9 @@ import com.dms.wordle.ItemType
 import com.dms.wordle.adapters.DictionaryAdapter
 import com.dms.wordle.adapters.MyAdapter
 import com.dms.wordle.appData.MainLogic.filterData
-import com.dms.wordle.custom.GenericTextWatcher
-import com.dms.wordle.custom.MyKeyEvent
+import com.dms.wordle.custom.EditTextTextWatcher
 import com.dms.wordle.databinding.MyItemBinding
+import com.dms.wordle.interfaces.IsTextWatcher
 import com.dms.wordle.models.AddCharInEdittext
 import com.dms.wordle.models.PerfectPosition
 import com.dms.wordle.models.YellowPosition
@@ -45,7 +45,7 @@ class HomeRepository(private val homeActivity: HomeActivity) :
     private var adapter: DictionaryAdapter =
         DictionaryAdapter(homeActivity.applicationContext, this)
     private lateinit var listOfDictionary: ArrayList<String>
-    var listOfBoxes = Utils.boxItems(6)
+    private var listOfBoxes = Utils.boxItems(6)
 
 
     var fiveOfList = Utils.items(5)
@@ -119,9 +119,6 @@ class HomeRepository(private val homeActivity: HomeActivity) :
 
     }
 
-    private fun callFilter() {
-
-    }
 
     private fun getWord() {
         when (digit) {
@@ -179,7 +176,6 @@ class HomeRepository(private val homeActivity: HomeActivity) :
         val six = editText[5].text.toString()
         val seven = editText[6].text.toString()
         val eight = editText[7].text.toString()
-
 
         if (position == 0) {
             addColorWiseList(
@@ -276,6 +272,7 @@ class HomeRepository(private val homeActivity: HomeActivity) :
             enableRow()
             getCurrentPosition()
         }, 2000)
+
 
     }
 
@@ -425,10 +422,11 @@ class HomeRepository(private val homeActivity: HomeActivity) :
         return homeActivity.digitWiseData(digit)
     }
 
-    fun checkIsWrite(position: Int) {
+    private fun checkIsWrite(position: Int) {
         var newList = String()
         for (i in 0 until addCharInEdittext[position].editText.size) {
             newList += addCharInEdittext[position].editText[i].text.toString()
+            addCharInEdittext[position].editText[i].isEnabled = false
         }
         addCharInEdittext[position].word = newList
         getCurrentPosition()
@@ -460,40 +458,6 @@ class HomeRepository(private val homeActivity: HomeActivity) :
                     addCharInEdittext[position].editText[j].setText(item[i].toString())
                 }
             }
-
-//            for (j in addCharInEdittext[position].editText.indices) {
-//                if (i == 0) {
-//                    addCharInEdittext[position].binding.editText.setText(item[i].toString())
-//                }
-//
-//                if (i == 1) {
-//                    addCharInEdittext[position].binding.editText1.setText(item[i].toString())
-//                }
-//
-//                if (i == 2) {
-//                    addCharInEdittext[position].binding.editText2.setText(item[i].toString())
-//                }
-//
-//                if (i == 3) {
-//                    addCharInEdittext[position].binding.editText3.setText(item[i].toString())
-//                }
-//
-//                if (i == 4) {
-//                    addCharInEdittext[position].binding.editText4.setText(item[i].toString())
-//                }
-//
-//                if (i == 5) {
-//                    addCharInEdittext[position].binding.editText5.setText(item[i].toString())
-//                }
-//
-//                if (i == 6) {
-//                    addCharInEdittext[position].binding.editText6.setText(item[i].toString())
-//                }
-//
-//                if (i == 7) {
-//                    addCharInEdittext[position].binding.editText7.setText(item[i].toString())
-//                }
-//            }
         }
     }
 
@@ -504,4 +468,19 @@ class HomeRepository(private val homeActivity: HomeActivity) :
             }
         }
     }
+
+//    fun manageUI() {
+//        for (i in addCharInEdittext[currentPosition].editText.indices) {
+//            addCharInEdittext[currentPosition].editText[i].addTextChangedListener(
+//                EditTextTextWatcher(this, i)
+//            )
+//        }
+//    }
+//
+//    override fun isWrite(position: Int, isRightOrRemove: Boolean) {
+//        addCharInEdittext[currentPosition].editText[position].requestFocus()
+//        if (!isRightOrRemove && addCharInEdittext[currentPosition].editText[position].text.isNotEmpty()) {
+//            addCharInEdittext[currentPosition].editText[position].setText("")
+//        }
+//    }
 }
