@@ -27,4 +27,13 @@
         <item name="android:textSize">28sp</item>
         <item name="android:fontFamily">@font/roboto_black</item>
     </style>
+
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="ColdStart" parent="Theme.NoToolbar">
+        <item name="android:windowBackground">@drawable/ll_win_bg_splash</item>
+    </style>
 </resources>

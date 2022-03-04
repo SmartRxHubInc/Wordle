@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:onClick="@{() -> homeRepository.onWordClick(item)}"
-            android:padding="@dimen/padding_large"
+            android:padding="@dimen/padding_small"
             android:text="@{item}"
             android:textColor="@color/black"
             android:textStyle="bold"
