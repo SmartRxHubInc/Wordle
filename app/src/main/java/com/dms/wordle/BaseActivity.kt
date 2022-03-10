@@ -1,7 +1,6 @@
 package com.dms.wordle
 
 import androidx.appcompat.app.AppCompatActivity
-import com.dms.wordle.models.DictionaryData
 import org.json.JSONArray
 import java.io.IOException
 import java.io.InputStream

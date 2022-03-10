@@ -16,20 +16,6 @@ import com.dms.wordle.models.AddCharInEdittext
 
 
 object Utils {
-    @JvmStatic
-    fun boxesItem(verticalItem: Int, horizontalItem: Int): ArrayList<BoxesItem> {
-        val mainItem = ArrayList<BoxesItem>()
-        for (i in 1..verticalItem) {
-            val dictionaryItem = BoxesItem();
-            val charItem = ArrayList<ChatItem>()
-            for (j in 1..horizontalItem) {
-                charItem.add(ChatItem("", ItemType.GREY, 0))
-            }
-            dictionaryItem.charItem = charItem
-            mainItem.add(dictionaryItem)
-        }
-        return mainItem
-    }
 
     @JvmStatic
     fun boxItems(verticalItem: Int): ArrayList<ChatItem> {

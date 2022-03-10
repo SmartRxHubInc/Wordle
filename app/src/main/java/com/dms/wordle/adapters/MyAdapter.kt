@@ -85,41 +85,9 @@ class MyAdapter(
             }
         }
 
-        if(position == mList.size -1) {
+        if (position == mList.size - 1) {
 //            homeRepository.manageUI()
         }
-
-//        holder.binding.editText.setOnClickListener {
-//            setColor(holder.binding.editText, position, 0, digit)
-//        }
-//
-//        holder.binding.editText1.setOnClickListener {
-//            setColor(holder.binding.editText1, position, 1, digit)
-//        }
-//
-//        holder.binding.editText2.setOnClickListener {
-//            setColor(holder.binding.editText2, position, 2, digit)
-//        }
-//
-//        holder.binding.editText3.setOnClickListener {
-//            setColor(holder.binding.editText3, position, 3, digit)
-//        }
-//
-//        holder.binding.editText4.setOnClickListener {
-//            setColor(holder.binding.editText4, position, 4, digit)
-//        }
-//
-//        holder.binding.editText5.setOnClickListener {
-//            setColor(holder.binding.editText5, position, 5, digit)
-//        }
-//
-//        holder.binding.editText6.setOnClickListener {
-//            setColor(holder.binding.editText6, position, 6, digit)
-//        }
-//
-//        holder.binding.editText7.setOnClickListener {
-//            setColor(holder.binding.editText7, position, 7, digit)
-//        }
     }
 
     override fun getItemCount(): Int {
@@ -191,7 +159,7 @@ class MyAdapter(
 
         binding.editText1.setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_DONE) {
-//                checkDigit(digit, binding, position)
+//              checkDigit(digit, binding, position)
                 Utils.hideKeyBoard(mContext, binding.editText)
                 true
             } else {
@@ -201,7 +169,7 @@ class MyAdapter(
 
         binding.editText2.setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_DONE) {
-//                checkDigit(digit, binding, position)
+//              checkDigit(digit, binding, position)
                 Utils.hideKeyBoard(mContext, binding.editText)
                 true
             } else {
@@ -439,7 +407,8 @@ class MyAdapter(
         }
     }
 
-    class FocusEditText(private val selectedEditText: EditText, val binding: MyItemBinding) : View.OnFocusChangeListener {
+    class FocusEditText(private val selectedEditText: EditText, val binding: MyItemBinding) :
+        View.OnFocusChangeListener {
         override fun onFocusChange(view: View?, isSelect: Boolean) {
 //            selectedEditText.setSelection(selectedEditText.text.length)
 //            binding.editText1.setSelection(binding.editText1.text.length)

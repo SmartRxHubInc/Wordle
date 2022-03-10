@@ -13,9 +13,6 @@ import com.dms.wordle.ItemType
 import com.dms.wordle.adapters.DictionaryAdapter
 import com.dms.wordle.adapters.MyAdapter
 import com.dms.wordle.appData.MainLogic.filterData
-import com.dms.wordle.custom.EditTextTextWatcher
-import com.dms.wordle.databinding.MyItemBinding
-import com.dms.wordle.interfaces.IsTextWatcher
 import com.dms.wordle.models.AddCharInEdittext
 import com.dms.wordle.models.PerfectPosition
 import com.dms.wordle.models.YellowPosition
@@ -25,7 +22,6 @@ import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.LoadAdError
 import com.google.android.gms.ads.MobileAds
-
 
 class HomeRepository(private val homeActivity: HomeActivity) :
     RadioGroup.OnCheckedChangeListener {
@@ -55,6 +51,35 @@ class HomeRepository(private val homeActivity: HomeActivity) :
 
     var binding = homeActivity.binding
 
+
+
+    override fun onCheckedChanged(group: RadioGroup?, checkedId: Int) {
+        val checkedRadioButton = group?.findViewById<View>(checkedId) as RadioButton
+        checkedRadioButton.isChecked
+        digit = checkedRadioButton.text.toString().toInt()
+        listOfDictionary = homeActivity.digitWiseData(checkedRadioButton.text.toString().toInt())
+        adapter.addItems(listOfDictionary)
+        grey.clear()
+        yellow.clear()
+        green.clear()
+        addCharInEdittext.clear()
+        listOfBoxes.clear()
+        listOfBoxes = Utils.boxItems(6)
+        currentPosition = 0
+        binding.rvWord.adapter = MyAdapter(
+            homeActivity.applicationContext,
+            this,
+            listOfBoxes,
+            checkedRadioButton.text.toString().toInt()
+        )
+        binding.rvFilter.adapter = adapter
+
+        Handler(Looper.myLooper()!!).postDelayed({
+            enableRow()
+            getCurrentPosition()
+        }, 2000)
+    }
+
     init {
         binding.rg.setOnCheckedChangeListener(this)
         binding.rbFive.isChecked = true
@@ -70,21 +95,6 @@ class HomeRepository(private val homeActivity: HomeActivity) :
         binding.ads.adListener = adListener()
 
         binding.btnFilter.setOnClickListener {
-            for (i in grey.indices) {
-                Log.e("Grey Char : ", grey[i])
-            }
-            Log.e("<-----------> : ", "<----------->")
-
-            for (i in yellow.indices) {
-                Log.e("Yellow Char : ", yellow[i].char)
-
-            }
-            Log.e("<-----------> : ", "<----------->")
-
-            for (i in green.indices) {
-                Log.e("Green Char : ", green[i].char)
-            }
-
             if (ValidationEditText.validation(
                     digit = digit,
                     editText = addCharInEdittext[currentPosition].editText
@@ -116,15 +126,16 @@ class HomeRepository(private val homeActivity: HomeActivity) :
                 5
             )
         }
-
     }
+
+
 
 
     private fun getWord() {
         when (digit) {
             5 -> {
                 for (i in 0 until fiveOfList.size) {
-                    addInList1(
+                    addInList(
                         i,
                         fiveOfList[i].type,
                         addCharInEdittext[currentPosition].editText
@@ -136,7 +147,7 @@ class HomeRepository(private val homeActivity: HomeActivity) :
 
             6 -> {
                 for (i in 0 until sixOfList.size) {
-                    addInList1(i, sixOfList[i].type, addCharInEdittext[currentPosition].editText)
+                    addInList(i, sixOfList[i].type, addCharInEdittext[currentPosition].editText)
                 }
                 sixOfList.clear()
                 sixOfList = Utils.items(6)
@@ -144,7 +155,7 @@ class HomeRepository(private val homeActivity: HomeActivity) :
 
             7 -> {
                 for (i in 0 until sevenOfList.size) {
-                    addInList1(i, sevenOfList[i].type, addCharInEdittext[currentPosition].editText)
+                    addInList(i, sevenOfList[i].type, addCharInEdittext[currentPosition].editText)
                 }
                 sevenOfList.clear()
                 sevenOfList = Utils.items(7)
@@ -152,7 +163,7 @@ class HomeRepository(private val homeActivity: HomeActivity) :
 
             8 -> {
                 for (i in 0 until eightOfList.size) {
-                    addInList1(i, eightOfList[i].type, addCharInEdittext[currentPosition].editText)
+                    addInList(i, eightOfList[i].type, addCharInEdittext[currentPosition].editText)
                 }
                 eightOfList.clear()
                 eightOfList = Utils.items(8)
@@ -167,7 +178,7 @@ class HomeRepository(private val homeActivity: HomeActivity) :
         enableRow()
     }
 
-    private fun addInList1(position: Int, itemType: ItemType, editText: ArrayList<EditText>) {
+    private fun addInList(position: Int, itemType: ItemType, editText: ArrayList<EditText>) {
         val first = editText[0].text.toString()
         val second = editText[1].text.toString()
         val three = editText[2].text.toString()
@@ -249,32 +260,7 @@ class HomeRepository(private val homeActivity: HomeActivity) :
         }
     }
 
-    override fun onCheckedChanged(group: RadioGroup?, checkedId: Int) {
-        val checkedRadioButton = group?.findViewById<View>(checkedId) as RadioButton
-        checkedRadioButton.isChecked
-        digit = checkedRadioButton.text.toString().toInt()
-        listOfDictionary = homeActivity.digitWiseData(checkedRadioButton.text.toString().toInt())
-        adapter.addItems(listOfDictionary)
-        addCharInEdittext.clear()
-        listOfBoxes.clear()
-        listOfBoxes = Utils.boxItems(6)
-        currentPosition = 0
-        binding.rvWord.adapter = MyAdapter(
-            homeActivity.applicationContext,
-            this,
-            listOfBoxes,
-            checkedRadioButton.text.toString().toInt()
-        )
-        binding.rvFilter.adapter = adapter
 
-
-        Handler(Looper.myLooper()!!).postDelayed({
-            enableRow()
-            getCurrentPosition()
-        }, 2000)
-
-
-    }
 
     private fun adListener(): AdListener {
         return object : AdListener() {
@@ -297,88 +283,6 @@ class HomeRepository(private val homeActivity: HomeActivity) :
             override fun onAdClosed() {
                 Log.e("Load", "OnClose")
             }
-        }
-    }
-
-    fun addInList(position: Int, itemType: ItemType, binding: MyItemBinding) {
-        val first = binding.editText.text.toString()
-        val second = binding.editText1.text.toString()
-        val three = binding.editText2.text.toString()
-        val four = binding.editText3.text.toString()
-        val five = binding.editText4.text.toString()
-        val six = binding.editText5.text.toString()
-        val seven = binding.editText6.text.toString()
-        val eight = binding.editText7.text.toString()
-
-        if (position == 0) {
-            addColorWiseList(
-                first,
-                itemType,
-                YellowPosition(position, first),
-                PerfectPosition(position, first)
-            )
-        }
-
-        if (position == 1) {
-            addColorWiseList(
-                second,
-                itemType,
-                YellowPosition(position, second),
-                PerfectPosition(position, second)
-            )
-        }
-
-        if (position == 2) {
-            addColorWiseList(
-                three,
-                itemType,
-                YellowPosition(position, three),
-                PerfectPosition(position, three)
-            )
-        }
-
-        if (position == 3) {
-            addColorWiseList(
-                four,
-                itemType,
-                YellowPosition(position, four),
-                PerfectPosition(position, four)
-            )
-        }
-        if (position == 4) {
-            addColorWiseList(
-                five,
-                itemType,
-                YellowPosition(position, five),
-                PerfectPosition(position, five)
-            )
-        }
-
-        if (position == 5) {
-            addColorWiseList(
-                six,
-                itemType,
-                YellowPosition(position, six),
-                PerfectPosition(position, six)
-            )
-        }
-
-        if (position == 6) {
-            addColorWiseList(
-                seven,
-                itemType,
-                YellowPosition(position, seven),
-                PerfectPosition(position, seven)
-            )
-        }
-
-        if (position == 7) {
-            addColorWiseList(
-                eight,
-                itemType,
-                YellowPosition(position, eight),
-                PerfectPosition(position, eight)
-            )
         }
     }
 
@@ -468,19 +372,4 @@ class HomeRepository(private val homeActivity: HomeActivity) :
             }
         }
     }
-
-//    fun manageUI() {
-//        for (i in addCharInEdittext[currentPosition].editText.indices) {
-//            addCharInEdittext[currentPosition].editText[i].addTextChangedListener(
-//                EditTextTextWatcher(this, i)
-//            )
-//        }
-//    }
-//
-//    override fun isWrite(position: Int, isRightOrRemove: Boolean) {
-//        addCharInEdittext[currentPosition].editText[position].requestFocus()
-//        if (!isRightOrRemove && addCharInEdittext[currentPosition].editText[position].text.isNotEmpty()) {
-//            addCharInEdittext[currentPosition].editText[position].setText("")
-//        }
-//    }
 }

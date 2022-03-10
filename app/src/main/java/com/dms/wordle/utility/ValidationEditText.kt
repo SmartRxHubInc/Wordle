@@ -3,7 +3,6 @@ package com.dms.wordle.utility
 import android.widget.EditText
 
 object ValidationEditText {
-
     fun validation(digit: Int, editText: ArrayList<EditText>): Boolean {
         if (digit == 5) {
             if (editText.size > 4) {
