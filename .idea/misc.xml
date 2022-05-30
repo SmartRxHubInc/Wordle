@@ -7,10 +7,12 @@
         <entry key="..\:/Android Project Git/Wordle/app/src/main/res/drawable/custom_cursor.xml" value="0.22592592592592592" />
         <entry key="..\:/Android Project Git/Wordle/app/src/main/res/drawable/green_border.xml" value="0.2518518518518518" />
         <entry key="..\:/Android Project Git/Wordle/app/src/main/res/drawable/grey_border.xml" value="0.105" />
+        <entry key="..\:/Android Project Git/Wordle/app/src/main/res/drawable/ic_tick.xml" value="0.161" />
         <entry key="..\:/Android Project Git/Wordle/app/src/main/res/drawable/ll_win_bg_splash.xml" value="0.136" />
+        <entry key="..\:/Android Project Git/Wordle/app/src/main/res/drawable/selected_bg.xml" value="0.161" />
         <entry key="..\:/Android Project Git/Wordle/app/src/main/res/drawable/yellow_border.xml" value="0.2518518518518518" />
         <entry key="..\:/Android Project Git/Wordle/app/src/main/res/layout/activity_demo.xml" value="0.2421875" />
-        <entry key="..\:/Android Project Git/Wordle/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Android Project Git/Wordle/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Android Project Git/Wordle/app/src/main/res/layout/activity_splash.xml" value="0.2421875" />
         <entry key="..\:/Android Project Git/Wordle/app/src/main/res/layout/boxes_item.xml" value="0.2" />
         <entry key="..\:/Android Project Git/Wordle/app/src/main/res/layout/char_item.xml" value="0.176" />

@@ -53,13 +53,6 @@ object MainLogic {
                 list.addAll(listOfFiveChar)
             }
 
-//            if (yellow.size > 0) {
-//                for (i in 0 until yellow.size) {
-//                    list = list.filter { it.uppercase().contains(yellow[i].char.uppercase())
-//                    } as ArrayList<String>
-//                }
-//            }
-
             if (yellow.size > 0) {
                 for (i in 0 until yellow.size) {
                     list = list.filter {
@@ -68,7 +61,6 @@ object MainLogic {
                     } as ArrayList<String>
                 }
             }
-
 
             if (green.size > 0) {
                 for (i in 0 until green.size) {

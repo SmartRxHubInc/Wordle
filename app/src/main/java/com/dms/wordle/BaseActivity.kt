@@ -7,6 +7,7 @@ import java.io.InputStream
 
 open class BaseActivity : AppCompatActivity() {
     private val listDictionaryData = ArrayList<String>()
+
     fun getDigitWiseDictionary(): ArrayList<String>? {
         try {
             val inputStream: InputStream = assets.open("dictionary.json")
